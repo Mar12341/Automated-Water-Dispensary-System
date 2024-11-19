@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="eng"> 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Water Cycle </title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body> 
+
+<!-- Website graphics are created -->
+	<div class = "background">
+		<div class = "background1">
+		<h1> Water Cycle  </h1>
+			<div  class = "backgroundbowl">
+				<div class = "transparentbowl">
+					<div id= "waterlvlbox">
+						
+
+					</div>	
+				</div>
+			</div>			
+		</div>
+	</div>
+
+<!-- Event listner is made -->
+	<button id="button1" onclick= "toggleProcess()"> Start Water Cycle </button>
+	<script>
+		let processRunning = false;	
+		
+		<!-- Function for the sending of the action variable to the php script and the updating of the button on the website. -->
+		function toggleProcess() {
+			const action = processRunning ? 'stop' : 'start';
+
+			fetch(`toggle_process.php?action=${action}`)
+				.then(response => response.text())
+				.then(data => {
+					alert(data);
+					processRunning = !processRunning;
+					document.getElementById("button1").innerText = processRunning ? "Stop Water Cycle" : "Start Water Cycle";
+				})
+				.catch(error => console.error('Error:', error));
+		}
+		
+		<!-- Function for the updating of the waterlvlbox graphic  element on the website -->
+		function updateBoxSize(waterLvl) {
+			const box = document.getElementById("waterlvlbox");
+			const newSize = 86 - waterLvl * 10;
+			box.style.height = newSize + "px";
+		}
+		
+		<!-- Fetching the waterLvl from the php script. -->
+		setInterval(function() {
+			fetch('get_waterLvl.php')
+				.then(response => response.json())
+				.then(data => {
+					const waterLvl = parseInt(data.waterLvl, 10);
+					updateBoxSize(waterLvl);
+			
+				})
+				.catch(error => console.error('Error Fetching distance:', error));
+
+		<!-- 2 second delay -->
+ 		}, 2000); 
+	</script>
+</body>
+</html>
+
+
