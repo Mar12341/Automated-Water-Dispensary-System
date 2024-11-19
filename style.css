@@ -1,0 +1,92 @@
+
+/*The styling of the graphics on the website.*/
+
+	body{
+		background: linear-gradient(to right, #99b6d4, #3c5a7b ); 
+		display: flex;
+		margin-top: 15%;
+		margin-left: 30%;
+		position: relative;
+		flex-direction: column;
+	}
+
+	.background{
+		position: relative;
+		height: 200px;
+		width: 350px;
+		background-color: black;
+		display: grid;
+		justify-content: center;
+		border-radius: 5%;
+		border-style: solid;
+		border-width: 2px;
+		border-color: rgb(255, 255, 255);
+		box-shadow: 0 0 10px rgb(0, 0, 0);
+		margin-left: -32%;
+		margin-top: 40%;
+
+	}
+
+	.background1{
+		position: absolute;
+		top: 10%;
+		right: 4%;
+		height: 160px;
+		width: 320px;
+		background-color: white;
+		z-index: 1;
+		border-radius: 5%;
+		display: flex;
+		flex-direction: column; 
+
+	}
+
+	h1{
+		position: absolute;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 20px;
+		align-self: center;
+	}
+
+	.backgroundbowl{
+		position: absolute;
+		height: 90px;
+		width: 250px;
+		background-color: black;
+		align-self: center;
+		top: 34%;
+
+	}
+	.transparentbowl{
+		position: absolute;
+		height: 86px;
+		width: 245px;
+		background-color: white;
+		align-self: center;
+		right: 1%;
+		overflow: hidden;
+	}
+
+	#waterlvlbox{
+		position: absolute;
+		bottom: 0px;
+		height: 50px;
+		width: 245px;
+		background-color: #589eea;
+		align-self: center;
+
+	}
+		
+	#button1{
+		position: relative;
+		height: 50px;
+		width: 300px;
+		margin-left: -23%;
+		margin-top: 10%;
+		font-size: 30px;
+		font-family: Arial, Helvetica, sans-serif;
+		color: black;	
+
+	}
+
+
